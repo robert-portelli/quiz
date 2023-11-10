@@ -1,5 +1,8 @@
 # quiz.py
 from string import ascii_lowercase
+import random
+
+NUM_QUESTIONS_PER_QUIZ = 5
 
 QUESTIONS = {
     "When was the first known use of the word 'quiz'": [
@@ -58,11 +61,16 @@ QUESTIONS = {
     ],
 }
 
+num_questions = min(NUM_QUESTIONS_PER_QUIZ, len(QUESTIONS))
+questions = random.sample(list(QUESTIONS.items()), k=num_questions)
+
 NUM_CORRECT = 0
-for i, (question, alternatives) in enumerate(QUESTIONS.items(), start=1):
-    print(f"\nQuestion {i}: {question}df?")
+for i, (question, alternatives) in enumerate(questions, start=1):
+    print(f"\nQuestion {i}: {question}?")
     CORRECT_ANSWER = alternatives[0]
-    labeled_alternatives = dict(zip(ascii_lowercase, sorted(alternatives)))
+    labeled_alternatives = dict(
+        zip(ascii_lowercase, random.sample(alternatives, k=len(alternatives)))
+    )
     for label, alternative in labeled_alternatives.items():
         print(f"  {label}) {alternative}")
 
