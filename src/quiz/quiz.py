@@ -66,10 +66,16 @@ QUESTIONS = {
         "When the file only has one function",
     ],
     "Which version of Python is the first with TOML support built in": [
-        "3.11", "3.9", "3.10", "3.12",
+        "3.11",
+        "3.9",
+        "3.10",
+        "3.12",
     ],
     "What's the name of the list-like data structure in TOML": [
-        "Array", "List", "Sequence", "Set",
+        "Array",
+        "List",
+        "Sequence",
+        "Set",
     ],
 }
 
