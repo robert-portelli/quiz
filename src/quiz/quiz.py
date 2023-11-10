@@ -2,7 +2,12 @@
 from string import ascii_lowercase
 
 QUESTIONS = {
-    "When was the first known use of the word 'quiz'": ["1781", "1771", "1871", "1881"],
+    "When was the first known use of the word 'quiz'": [
+        "1781",
+        "1771",
+        "1871",
+        "1881",
+    ],
     "Which built-in function can get information from the user": [
         "input",
         "get",
@@ -20,6 +25,36 @@ QUESTIONS = {
         "To combine several strings into one",
         "To compress several files into one archive",
         "To get information from the user",
+    ],
+    "What's the name of Python's sorting algorithm": [
+        "Timsort",
+        "Quicksort",
+        "Merge sort",
+        "Bubble sort",
+    ],
+    "What does dict.get(key) return if key isn't found in dict": [
+        "None",
+        "key",
+        "True",
+        "False",
+    ],
+    "How do you iterate over both indices and elements in an iterable": [
+        "enumerate(iterable)",
+        "enumerate(iterable, start=1)",
+        "range(iterable)",
+        "range(iterable, start=1)",
+    ],
+    "What's the official name of the := operator": [
+        "Assignment expression",
+        "Named expression",
+        "Walrus operator",
+        "Colon equals operator",
+    ],
+    "What's one effect of calling random.seed(42)": [
+        "The random numbers are reproducible.",
+        "The random numbers are more random.",
+        "The computer clock is reset.",
+        "The first random number is always 42.",
     ],
 }
 
