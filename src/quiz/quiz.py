@@ -60,14 +60,16 @@ QUESTIONS = {
 
 NUM_CORRECT = 0
 for i, (question, alternatives) in enumerate(QUESTIONS.items(), start=1):
-    print(f"\nQuestion {i}: {question}?")
+    print(f"\nQuestion {i}: {question}df?")
     CORRECT_ANSWER = alternatives[0]
     labeled_alternatives = dict(zip(ascii_lowercase, sorted(alternatives)))
     for label, alternative in labeled_alternatives.items():
         print(f"  {label}) {alternative}")
 
-    answer_label = input("\nChoice? ")
-    answer = labeled_alternatives.get(answer_label)
+    while (answer_label := input("\nChoice? ")) not in labeled_alternatives:
+        print(f"Please answer one of: {', '.join(labeled_alternatives)}")
+
+    answer = labeled_alternatives[answer_label]
     if answer == CORRECT_ANSWER:
         NUM_CORRECT += 1
         print("⭐ Correct! ⭐")
