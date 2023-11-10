@@ -58,6 +58,7 @@ QUESTIONS = {
     ],
 }
 
+NUM_CORRECT = 0
 for i, (question, alternatives) in enumerate(QUESTIONS.items(), start=1):
     print(f"\nQuestion {i}: {question}?")
     CORRECT_ANSWER = alternatives[0]
@@ -68,6 +69,9 @@ for i, (question, alternatives) in enumerate(QUESTIONS.items(), start=1):
     answer_label = input("\nChoice? ")
     answer = labeled_alternatives.get(answer_label)
     if answer == CORRECT_ANSWER:
+        NUM_CORRECT += 1
         print("⭐ Correct! ⭐")
     else:
         print(f"The answer is {CORRECT_ANSWER!r}, not {answer!r}")
+
+print(f"\nYou got {NUM_CORRECT} correct out of {i} questions")
