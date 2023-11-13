@@ -10,9 +10,8 @@ QUESTIONS_PATH = pathlib.Path(__file__).parent / "QUESTIONS.toml"
 
 def main():
     """
-    1. call preprocess() for the list of questions and their alternatives
-    2. call main_process() with each question and labeled shuffled alternatives
-    in the list of questions
+    1. call preprocess() for the list of dictionaries
+    2. call main_process() with each dictionary
     3. increment num_correct by the value returned by main_process()
     3. Display record of correct alternatives after all questions asked
     """
@@ -29,9 +28,9 @@ def main():
 
 def preprocess(path, num_questions):
     """
+    1. Retrieve the list of dictionaries assigned to the key "questions"
     1. Decide how many questions will be presented to the user
-    2. return to main() with the list of questions and their
-        alternatives
+    2. return to main() with a list of dictionaries
     """
     questions = tomllib.loads(path.read_text())["questions"]
     num_questions = min(num_questions, len(questions))
