@@ -6,7 +6,6 @@ import tomllib
 
 NUM_QUESTIONS_PER_QUIZ = 5
 QUESTIONS_PATH = pathlib.Path(__file__).parent / "QUESTIONS.toml"
-QUESTIONS = tomllib.loads(QUESTIONS_PATH.read_text())
 
 
 def main():
