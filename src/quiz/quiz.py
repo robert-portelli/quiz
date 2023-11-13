@@ -17,27 +17,29 @@ def main():
     3. increment num_correct by the value returned by main_process()
     3. Display record of correct alternatives after all questions asked
     """
-    questions = preprocess(QUESTIONS, num_questions=NUM_QUESTIONS_PER_QUIZ)
+    questions = preprocess(QUESTIONS_PATH,
+                           num_questions=NUM_QUESTIONS_PER_QUIZ)
 
     num_correct = 0
-    for index_label, (question, alternatives) in enumerate(questions, start=1):
+    for index_label, question in enumerate(questions, start=1):
         print(f"\nQuestion {index_label}:")
-        num_correct += main_process(question, alternatives)
+        num_correct += main_process(question)
 
     print(f"\nYou got {num_correct} correct out of {len(questions)} questions")
 
 
-def preprocess(questions, num_questions):
+def preprocess(path, num_questions):
     """
     1. Decide how many questions will be presented to the user
     2. return to main() with the list of questions and their
         alternatives
     """
+    questions = tomllib.loads(path.read_text())["questions"]
     num_questions = min(num_questions, len(questions))
-    return random.sample(list(questions.items()), k=num_questions)
+    return random.sample(questions, k=num_questions)
 
 
-def main_process(question, alternatives):
+def main_process(question):
     """
     1. remember this iteration's question's correct alternative
     2. shuffle the alternatives
@@ -47,10 +49,11 @@ def main_process(question, alternatives):
     5. return to main() with the value with which to increment
         num_correct
     """
-    correct_alternative = alternatives[0]
+    correct_alternative = question["answer"]
+    alternatives = [question["answer"]] + question["alternatives"]
     shuffled_alternatives = random.sample(alternatives, k=len(alternatives))
 
-    answer = main_loop(question, shuffled_alternatives)
+    answer = main_loop(question["question"], shuffled_alternatives)
     if answer == correct_alternative:
         print("⭐ Correct! ⭐")
         return 1
