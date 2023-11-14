@@ -59,15 +59,22 @@ def main_process(question):
         num_choices=len(correct_answers),
         hint=question.get("hint"),
     )
-    if set(answers) == set(correct_answers):
+
+    if correct := (set(answers) == set(correct_answers)):
         print("⭐ Correct! ⭐")
-        return 1
     else:
         # adjust error message grammar based on number of expected correct
         # answers
         is_or_are = " is" if len(correct_answers) == 1 else "s are"
         print("\n- ".join([f"No, the answer{is_or_are}:"] + correct_answers))
-        return 0
+
+    # display a message after the input answer is judged
+    if "explanation" in question:
+        print(f"\nEXPLANATION:\n{question['explanation']}")
+
+    # performing an action after judging answer regardless of correctness
+    # means you can't return inside the if ...  else block any longer.
+    return 1 if correct else 0
 
 
 def main_loop(question, alternatives, num_choices=1, hint=None):
