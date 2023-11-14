@@ -47,34 +47,72 @@ def main_process(question):
     5. return to main() with the value with which to increment
         num_correct
     """
-    correct_alternative = question["answer"]
-    alternatives = [question["answer"]] + question["alternatives"]
+    correct_answers = question["answers"]
+    alternatives = question["answers"] + question["alternatives"]
     shuffled_alternatives = random.sample(alternatives, k=len(alternatives))
 
-    answer = main_loop(question["question"], shuffled_alternatives)
-    if answer == correct_alternative:
+    answers = main_loop(
+        question=question["question"],
+        alternatives=shuffled_alternatives,
+        num_choices=len(correct_answers),
+    )
+    if set(answers) == set(correct_answers):
         print("⭐ Correct! ⭐")
         return 1
     else:
-        print(f"The answer is {correct_alternative!r}, not {answer!r}")
+        # adjust error message grammar based on number of expected correct
+        # answers
+        is_or_are = " is" if len(correct_answers) == 1 else "s are"
+        print("\n- ".join([f"No, the answer{is_or_are}:"] + correct_answers))
         return 0
 
 
-def main_loop(question, alternatives):
+def main_loop(question, alternatives, num_choices):
     """
-    1. display the question and labeled shuffled alternatives to user
-    2. return to main_process() with the alternative string for the
-        acceptable answer_label
+    1. Display the question and labeled shuffled alternatives to user
+    2. Display grammar presented to user based on multiple choice or not
+    3. Be lenient with user input
+        - if duplicate correct answer given, keep only one
+        - allow for irregular spacing in input by removing commas and adding
+        back in
+
+    4. Handle the incorrect number of choices given
+        - choose the correct grammar for the incorrect number of answers given
+        - rerun the loop
+    5. Handle  any evaluate to True, a choice input not in list of
+    alternatives, tell the user which input is invalid, which alternatives to
+    choose from, and rerun the loop
+    6. Return to main_process() with a list of correct answers
     """
     print(f"{question}?")
     labeled_alternatives = dict(zip(ascii_lowercase, alternatives))
     for labeled_index, alternative in labeled_alternatives.items():
         print(f"  {labeled_index}) {alternative}")
 
-    while (answer_label := input("\nChoice? ")) not in labeled_alternatives:
-        print(f"Please answer one of {', '.join(labeled_alternatives)}")
+    # rerun input prompt loop until return statement reached
+    while True:
+        plural_s = "" if num_choices == 1 else f"s (choose {num_choices})"
+        answer = input(f"\nChoice{plural_s}? ")
+        answers = set(answer.replace(",", " ").split())
 
-    return labeled_alternatives[answer_label]
+        # Handle incorrect quantity of answers input
+        if len(answers) != num_choices:
+            plural_s = "" if num_choices == 1 else "s, separated by comma"
+            print(f"Please answer {num_choices} alternative{plural_s}")
+            continue
+
+        # Handle incorrect character(s) given as answer
+        if any(
+            (invalid := answer) not in labeled_alternatives
+            for answer in answers
+        ):
+            print(
+                f"{invalid!r} is not a valid choice. "
+                f"Please use {', '.join(labeled_alternatives)}"
+            )
+            continue
+
+        return [labeled_alternatives[answer] for answer in answers]
 
 
 if __name__ == "__main__":
