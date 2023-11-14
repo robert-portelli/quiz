@@ -15,8 +15,7 @@ def main():
     3. increment num_correct by the value returned by main_process()
     3. Display record of correct alternatives after all questions asked
     """
-    questions = preprocess(QUESTIONS_PATH,
-                           num_questions=NUM_QUESTIONS_PER_QUIZ)
+    questions = preprocess(QUESTIONS_PATH, num_questions=NUM_QUESTIONS_PER_QUIZ)
 
     num_correct = 0
     for index_label, question in enumerate(questions, start=1):
@@ -55,6 +54,7 @@ def main_process(question):
         question=question["question"],
         alternatives=shuffled_alternatives,
         num_choices=len(correct_answers),
+        hint=question.get("hint"),
     )
     if set(answers) == set(correct_answers):
         print("⭐ Correct! ⭐")
@@ -67,7 +67,7 @@ def main_process(question):
         return 0
 
 
-def main_loop(question, alternatives, num_choices):
+def main_loop(question, alternatives, num_choices=1, hint=None):
     """
     1. Display the question and labeled shuffled alternatives to user
     2. Display grammar presented to user based on multiple choice or not
@@ -86,6 +86,10 @@ def main_loop(question, alternatives, num_choices):
     """
     print(f"{question}?")
     labeled_alternatives = dict(zip(ascii_lowercase, alternatives))
+    # check if hint not None, assign a label "?" to the value "Hint"
+    if hint:
+        labeled_alternatives["?"] = "Hint"
+
     for labeled_index, alternative in labeled_alternatives.items():
         print(f"  {labeled_index}) {alternative}")
 
@@ -95,6 +99,12 @@ def main_loop(question, alternatives, num_choices):
         answer = input(f"\nChoice{plural_s}? ")
         answers = set(answer.replace(",", " ").split())
 
+        # Handle hint not None and "?" given as answer,
+        #  i.e user wants to see hint
+        if hint and "?" in answers:
+            print(f"\nHINT: {hint}")
+            continue
+
         # Handle incorrect quantity of answers input
         if len(answers) != num_choices:
             plural_s = "" if num_choices == 1 else "s, separated by comma"
@@ -102,10 +112,7 @@ def main_loop(question, alternatives, num_choices):
             continue
 
         # Handle incorrect character(s) given as answer
-        if any(
-            (invalid := answer) not in labeled_alternatives
-            for answer in answers
-        ):
+        if any((invalid := answer) not in labeled_alternatives for answer in answers):
             print(
                 f"{invalid!r} is not a valid choice. "
                 f"Please use {', '.join(labeled_alternatives)}"
