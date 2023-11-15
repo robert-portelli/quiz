@@ -1,7 +1,9 @@
 # QUESTIONS.toml
 
+[quirky]
+label = "Quirky"
 
-[[questions]]
+[[quirky.questions]]
 question = "When was the first known use of the word 'quiz'"
 answers = ["1781"]
 alternatives =[
@@ -11,7 +13,10 @@ alternatives =[
 ]
 hint = "Same year as The Battle of Yorktown."
 
-[[questions]]
+[python]
+label = "Python"
+
+[[python.questions]]
 question = "Which built-in function can get information from the user"
 answers = ["input"]
 alternatives =[
@@ -21,7 +26,7 @@ alternatives =[
 ]
 hint = "It returns anything passed to it as a string."
 
-[[questions]]
+[[python.questions]]
 question = "Which keyword do you use to loop over a given list of elements"
 answers = ["for"]
 alternatives =[
@@ -30,7 +35,7 @@ alternatives =[
     "loop",
 ]
 
-[[questions]]
+[[python.questions]]
 question = "What's the purpose of the built-in zip() function"
 answers = ["To iterate over two or more sequences at the same time"]
 alternatives =[
@@ -39,7 +44,7 @@ alternatives =[
     "To get information from the user",
 ]
 
-[[questions]]
+[[python.questions]]
 question = "What's the name of Python's sorting algorithm"
 answers = ["Timsort"]
 alternatives =[
@@ -49,7 +54,7 @@ alternatives =[
 ]
 hint = "A hybrid designed to perform well on real-world data."
 
-[[questions]]
+[[python.questions]]
 question = "What does dict.get(key) return if key isn't found in dict"
 answers = ["None"]
 alternatives =[
@@ -59,7 +64,7 @@ alternatives =[
 ]
 hint = "Avoid KeyError and make available the ability to return a default value if the key is not found."
 
-[[questions]]
+[[python.questions]]
 question = "How do you iterate over both indices and elements in an iterable"
 answers = ["enumerate(iterable)"]
 alternatives =[
@@ -69,7 +74,7 @@ alternatives =[
 ]
 hint = "Returns a tuple to unpack."
 
-[[questions]]
+[[python.questions]]
 question = "What's the official name of the := operator"
 answers = ["Assignment expression"]
 alternatives =[
@@ -79,7 +84,7 @@ alternatives =[
 ]
 hint = "The dev paraphrases the :='s action as 'I want the symbol's value here now and again sometime later via the symbol."
 
-[[questions]]
+[[python.questions]]
 question = "What's one effect of calling random.seed(42)"
 answers = ["The random numbers are reproducible."]
 alternatives =[
@@ -88,7 +93,7 @@ alternatives =[
     "The first random number is always 42.",
 ]
 
-[[questions]]
+[[python.questions]]
 question = "When does __name__ == '__main__' equal True in a Python file"
 answers = ["When the file is run as a script"]
 alternatives =[
@@ -97,7 +102,7 @@ alternatives =[
     "When the file only has one function",
 ]
 
-[[questions]]
+[[python.questions]]
 question = "Which version of Python is the first with TOML support built in"
 answers = ["3.11"]
 alternatives =[
@@ -106,7 +111,7 @@ alternatives =[
     "3.12",
 ]
 
-[[questions]]
+[[python.questions]]
 question = "What's the name of the list-like data structure in TOML"
 answers = ["Array"]
 alternatives =[
@@ -115,13 +120,13 @@ alternatives =[
     "Set",
 ]
 
-[[questions]]
+[[python.questions]]
 question = "How can you run a Python script named quiz.py"
 answers = ["python quiz.py", "python -m quiz"]
 alternatives = ["python quiz", "python -m quiz.py"]
 hint = "One option uses the filename, and the other uses the module name."
 
-[[questions]]
+[[python.questions]]
 question = "What's a PEP"
 answers = ["A Python Enhancement Proposal"]
 alternatives = [
@@ -137,7 +142,7 @@ explanation = """
     document design decisions made about the language.
 """
 
-[[questions]]
+[[python.questions]]
 question = "How can you add a docstring to a function"
 answers = [
     "By writing a string literal as the first statement in the function",
@@ -158,7 +163,7 @@ explanation = """
     strings. Such a feature can therefore not be used for docstrings.
 """
 
-[[questions]]
+[[python.questions]]
 question = "When was the first public version of Python released?"
 answers = ["February 1991"]
 alternatives = ["January 1994", "October 2000", "December 2008"]
