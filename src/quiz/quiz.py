@@ -1,4 +1,17 @@
 # quiz.py
+"""
+A simple command-line quiz game.
+
+This script reads questions from a TOML file, allows the user to choose a topic,
+and quizzes the user with a set number of random questions from that topic.
+
+Requirements:
+- Python 3.7 or later
+- The `tomllib` library for TOML parsing
+
+Install `tomllib` with:
+$ pip install toml
+"""
 from string import ascii_lowercase
 import random
 import pathlib
@@ -10,10 +23,7 @@ QUESTIONS_PATH = pathlib.Path(__file__).parent / "QUESTIONS.toml"
 
 def main():
     """
-    1. call preprocess() for the list of dictionaries
-    2. call main_process() with each dictionary
-    3. increment num_correct by the value returned by main_process()
-    3. Display record of correct alternatives after all questions asked
+    Main function to run the quiz game.
     """
     questions = preprocess(
         QUESTIONS_PATH,
@@ -30,13 +40,14 @@ def main():
 
 def preprocess(path, num_questions):
     """
-    1. Read and parse the entire toml
-    1. for each global key, create a dictionary from its values
-    2. prompt the user to choose from the dictionary keys, i.e. topics
-    4. Choose the first element from a list of one string
-    5. assign all the questions for that topic
-    6. decide the number of questions to be asked
-    7. return to main() with a random sample of questions
+    Preprocess questions by loading from the TOML file and selecting a topic.
+
+    Parameters:
+    - path (pathlib.Path): The path to the TOML file containing questions.
+    - num_questions (int): The number of questions to select for the quiz.
+
+    Returns:
+    List[dict]: A list of selected questions.
     """
     trivia_toml = tomllib.loads(path.read_text())
     topics = {
@@ -54,13 +65,13 @@ def preprocess(path, num_questions):
 
 def main_process(question):
     """
-    1. remember this iteration's question's correct alternative
-    2. shuffle the alternatives
-    3. present the question and shuffled alternatives to user
-    4. compare the alternative string chosen by the user via
-        alternative label to the correct alternative
-    5. return to main() with the value with which to increment
-        num_correct
+    Process a single question and get the user's response.
+
+    Parameters:
+    - question (dict): The question dictionary.
+
+    Returns:
+    int: 1 if the answer is correct, 0 otherwise.
     """
     correct_answers = question["answers"]
     alternatives = question["answers"] + question["alternatives"]
@@ -92,23 +103,16 @@ def main_process(question):
 
 def main_loop(question, alternatives, num_choices=1, hint=None):
     """
-    1. Display the question to the user
-    2. Check if hint is not None, create an index label "?" assigned to
-        "Hint"
-    3. Display all alterative labels with their values to the user
-    4. Display grammar presented to user based on multiple choice or not
-    5. Be lenient with user input
-        - if duplicate correct answer given, keep only one
-        - allow for irregular spacing in input by removing commas and adding
-        back in
-    6. Handle the presence of Hint not None
-    7. Handle the incorrect number of choices given
-        - choose the correct grammar for the incorrect number of answers given
-        - rerun the loop
-    8. Handle  any evaluate to True, a choice input not in list of
-    alternatives, tell the user which input is invalid, which alternatives to
-    choose from, and rerun the loop
-    9. Return to main_process() with a list of correct answers
+    Display the question and handle the user's input.
+
+    Parameters:
+    - question (str): The question to display.
+    - alternatives (List[str]): List of answer alternatives.
+    - num_choices (int): Number of choices the user needs to make.
+    - hint (str): Optional hint to display.
+
+    Returns:
+    List[str]: A list of user's selected choices.
     """
     print(f"{question}?")
     labeled_alternatives = dict(zip(ascii_lowercase, alternatives))
