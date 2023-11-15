@@ -30,11 +30,24 @@ def main():
 
 def preprocess(path, num_questions):
     """
-    1. Retrieve the list of dictionaries assigned to the key "questions"
-    1. Decide how many questions will be presented to the user
-    2. return to main() with a list of dictionaries
+    1. Read and parse the entire toml
+    1. for each global key, create a dictionary from its values
+    2. prompt the user to choose from the dictionary keys, i.e. topics
+    4. Choose the first element from a list of one string
+    5. assign all the questions for that topic
+    6. decide the number of questions to be asked
+    7. return to main() with a random sample of questions
     """
-    questions = tomllib.loads(path.read_text())["questions"]
+    trivia_toml = tomllib.loads(path.read_text())
+    topics = {
+        topic["label"]: topic["questions"] for topic in trivia_toml.values()
+    }
+    topic_label = main_loop(
+        question="Which topic do you want to be quizzed about",
+        alternatives=sorted(topics),
+    )[0]
+
+    questions = topics[topic_label]
     num_questions = min(num_questions, len(questions))
     return random.sample(questions, k=num_questions)
 
