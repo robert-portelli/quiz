@@ -8,10 +8,12 @@ packages = [{include = "quiz", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+tomlkit = "^0.12.3"
 
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.5.0"
+tomlkit = "^0.12.3"
 
 [build-system]
 requires = ["poetry-core"]
