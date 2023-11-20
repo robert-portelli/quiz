@@ -1,12 +1,12 @@
-# QUESTIONS.toml
-
 [quirky]
 label = "Quirky"
 
 [[quirky.questions]]
 question = "When was the first known use of the word 'quiz'"
-answers = ["1781"]
-alternatives =[
+answers = [
+    "1781",
+]
+alternatives = [
     "1771",
     "1871",
     "1881",
@@ -18,8 +18,10 @@ label = "Python"
 
 [[python.questions]]
 question = "Which built-in function can get information from the user"
-answers = ["input"]
-alternatives =[
+answers = [
+    "input",
+]
+alternatives = [
     "get",
     "print",
     "write",
@@ -28,8 +30,10 @@ hint = "It returns anything passed to it as a string."
 
 [[python.questions]]
 question = "Which keyword do you use to loop over a given list of elements"
-answers = ["for"]
-alternatives =[
+answers = [
+    "for",
+]
+alternatives = [
     "while",
     "each",
     "loop",
@@ -37,8 +41,10 @@ alternatives =[
 
 [[python.questions]]
 question = "What's the purpose of the built-in zip() function"
-answers = ["To iterate over two or more sequences at the same time"]
-alternatives =[
+answers = [
+    "To iterate over two or more sequences at the same time",
+]
+alternatives = [
     "To combine several strings into one",
     "To compress several files into one archive",
     "To get information from the user",
@@ -46,8 +52,10 @@ alternatives =[
 
 [[python.questions]]
 question = "What's the name of Python's sorting algorithm"
-answers = ["Timsort"]
-alternatives =[
+answers = [
+    "Timsort",
+]
+alternatives = [
     "Quicksort",
     "Merge sort",
     "Bubble sort",
@@ -56,8 +64,10 @@ hint = "A hybrid designed to perform well on real-world data."
 
 [[python.questions]]
 question = "What does dict.get(key) return if key isn't found in dict"
-answers = ["None"]
-alternatives =[
+answers = [
+    "None",
+]
+alternatives = [
     "key",
     "True",
     "False",
@@ -66,8 +76,10 @@ hint = "Avoid KeyError and make available the ability to return a default value 
 
 [[python.questions]]
 question = "How do you iterate over both indices and elements in an iterable"
-answers = ["enumerate(iterable)"]
-alternatives =[
+answers = [
+    "enumerate(iterable)",
+]
+alternatives = [
     "enumerate(iterable, start=1)",
     "range(iterable)",
     "range(iterable, start=1)",
@@ -76,8 +88,10 @@ hint = "Returns a tuple to unpack."
 
 [[python.questions]]
 question = "What's the official name of the := operator"
-answers = ["Assignment expression"]
-alternatives =[
+answers = [
+    "Assignment expression",
+]
+alternatives = [
     "Named expression",
     "Walrus operator",
     "Colon equals operator",
@@ -86,8 +100,10 @@ hint = "The dev paraphrases the :='s action as 'I want the symbol's value here n
 
 [[python.questions]]
 question = "What's one effect of calling random.seed(42)"
-answers = ["The random numbers are reproducible."]
-alternatives =[
+answers = [
+    "The random numbers are reproducible.",
+]
+alternatives = [
     "The random numbers are more random.",
     "The computer clock is reset.",
     "The first random number is always 42.",
@@ -95,8 +111,10 @@ alternatives =[
 
 [[python.questions]]
 question = "When does __name__ == '__main__' equal True in a Python file"
-answers = ["When the file is run as a script"]
-alternatives =[
+answers = [
+    "When the file is run as a script",
+]
+alternatives = [
     "When the file is imported as a module",
     "When the file has a valid name",
     "When the file only has one function",
@@ -104,8 +122,10 @@ alternatives =[
 
 [[python.questions]]
 question = "Which version of Python is the first with TOML support built in"
-answers = ["3.11"]
-alternatives =[
+answers = [
+    "3.11",
+]
+alternatives = [
     "3.9",
     "3.10",
     "3.12",
@@ -113,8 +133,10 @@ alternatives =[
 
 [[python.questions]]
 question = "What's the name of the list-like data structure in TOML"
-answers = ["Array"]
-alternatives =[
+answers = [
+    "Array",
+]
+alternatives = [
     "List",
     "Sequence",
     "Set",
@@ -122,25 +144,28 @@ alternatives =[
 
 [[python.questions]]
 question = "How can you run a Python script named quiz.py"
-answers = ["python quiz.py", "python -m quiz"]
-alternatives = ["python quiz", "python -m quiz.py"]
+answers = [
+    "python quiz.py",
+    "python -m quiz",
+]
+alternatives = [
+    "python quiz",
+    "python -m quiz.py",
+]
 hint = "One option uses the filename, and the other uses the module name."
 
 [[python.questions]]
 question = "What's a PEP"
-answers = ["A Python Enhancement Proposal"]
+answers = [
+    "A Python Enhancement Proposal",
+]
 alternatives = [
     "A Pretty Exciting Policy",
     "A Preciously Evolved Python",
     "A Potentially Epic Prize",
-    ]
+]
 hint = "PEPs are used to evolve Python."
-explanation = """
-    Python Enhancement Proposals (PEPs) are design documents that provide
-    information to the Python community. PEPs are used to propose new features
-    for the Python language, to collect community input on an issue, and to
-    document design decisions made about the language.
-"""
+explanation = "    Python Enhancement Proposals (PEPs) are design documents that provide\n    information to the Python community. PEPs are used to propose new features\n    for the Python language, to collect community input on an issue, and to\n    document design decisions made about the language.\n"
 
 [[python.questions]]
 question = "How can you add a docstring to a function"
@@ -153,54 +178,51 @@ alternatives = [
     "By returning a string from the function",
 ]
 hint = "They're parsed from your code and stored on the function object."
-explanation = """
-    Docstrings document functions and other Python objects. A docstring is a
-    string literal that occurs as the first statement in a module, function,
-    class, or method definition. Such a docstring becomes the .__doc__ special
-    attribute of that object. See PEP 257 for more information.
-
-    There is no built-in @docstring decorator. Many functions naturally return
-    strings. Such a feature can therefore not be used for docstrings.
-"""
+explanation = "    Docstrings document functions and other Python objects. A docstring is a\n    string literal that occurs as the first statement in a module, function,\n    class, or method definition. Such a docstring becomes the .__doc__ special\n    attribute of that object. See PEP 257 for more information.\n\n    There is no built-in @docstring decorator. Many functions naturally return\n    strings. Such a feature can therefore not be used for docstrings.\n"
 
 [[python.questions]]
 question = "When was the first public version of Python released?"
-answers = ["February 1991"]
-alternatives = ["January 1994", "October 2000", "December 2008"]
+answers = [
+    "February 1991",
+]
+alternatives = [
+    "January 1994",
+    "October 2000",
+    "December 2008",
+]
 hint = "The first public version was labeled version 0.9.0."
-explanation = """
-    Guido van Rossum started work on Python in December 1989. He posted
-    Python v0.9.0 to the alt.sources newsgroup in February 1991. Python
-    reached version 1.0.0 in January 1994. The next major versions,
-    Python 2.0 and Python 3.0, were released in October 2000 and December
-    2008, respectively.
-"""
+explanation = "    Guido van Rossum started work on Python in December 1989. He posted\n    Python v0.9.0 to the alt.sources newsgroup in February 1991. Python\n    reached version 1.0.0 in January 1994. The next major versions,\n    Python 2.0 and Python 3.0, were released in October 2000 and December\n    2008, respectively.\n"
 
 [capitals]
 label = "Capitals"
 
 [[capitals.questions]]
 question = "What's the capital of Norway"
-answers = ["Oslo"]
+answers = [
+    "Oslo",
+]
 hint = "Lars Onsager, Jens Stoltenberg, Trygve Lie, and Børge Ousland."
-alternatives = ["Stockholm", "Copenhagen", "Helsinki", "Reykjavik"]
-explanation = """
-    Oslo was founded as a city in the 11th century and established as a
-    trading place. It became the capital of Norway in 1299. The city was
-    destroyed by a fire in 1624 and rebuilt as Christiania, named in honor
-    of the reigning king. The city was renamed back to Oslo in 1925.
-"""
+alternatives = [
+    "Stockholm",
+    "Copenhagen",
+    "Helsinki",
+    "Reykjavik",
+]
+explanation = "    Oslo was founded as a city in the 11th century and established as a\n    trading place. It became the capital of Norway in 1299. The city was\n    destroyed by a fire in 1624 and rebuilt as Christiania, named in honor\n    of the reigning king. The city was renamed back to Oslo in 1925.\n"
 
 [[capitals.questions]]
 question = "What's the state capital of Texas, USA"
-answers = ["Austin"]
-alternatives = ["Harrisburg", "Houston", "Galveston", "Columbia"]
+answers = [
+    "Austin",
+]
+alternatives = [
+    "Harrisburg",
+    "Houston",
+    "Galveston",
+    "Columbia",
+]
 hint = "SciPy is held there each year."
-explanation = """
-    Austin is named in honor of Stephen F. Austin. It was purpose-built to
-    be the capital of Texas and was incorporated in December 1839. Houston,
-    Harrisburg, Columbia, and Galveston are all earlier capitals of Texas.
-"""
+explanation = "    Austin is named in honor of Stephen F. Austin. It was purpose-built to\n    be the capital of Texas and was incorporated in December 1839. Houston,\n    Harrisburg, Columbia, and Galveston are all earlier capitals of Texas.\n"
 
 [dictionaries]
-label = 'dictionaries'
+label = "dictionaries"
