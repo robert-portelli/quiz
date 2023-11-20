@@ -222,7 +222,14 @@ alternatives = [
     "Columbia",
 ]
 hint = "SciPy is held there each year."
-explanation = "    Austin is named in honor of Stephen F. Austin. It was purpose-built to\n    be the capital of Texas and was incorporated in December 1839. Houston,\n    Harrisburg, Columbia, and Galveston are all earlier capitals of Texas.\n"
+
+explanation = """
+    Austin is named in honor of Stephen F. Austin. It was purpose-built to
+    be the capital of Texas and was incorporated in December 1839. Houston,
+    Harrisburg, Columbia, and Galveston are all earlier capitals of Texas.
+"""
 
 [dictionaries]
-label = "dictionaries"
+label = 'dictionaries'
+
+[[dictionaries.questions]]
