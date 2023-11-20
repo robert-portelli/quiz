@@ -201,3 +201,6 @@ explanation = """
     be the capital of Texas and was incorporated in December 1839. Houston,
     Harrisburg, Columbia, and Galveston are all earlier capitals of Texas.
 """
+
+[dictionaries]
+label = 'dictionaries'
