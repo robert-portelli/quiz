@@ -222,14 +222,146 @@ alternatives = [
     "Columbia",
 ]
 hint = "SciPy is held there each year."
-
-explanation = """
-    Austin is named in honor of Stephen F. Austin. It was purpose-built to
-    be the capital of Texas and was incorporated in December 1839. Houston,
-    Harrisburg, Columbia, and Galveston are all earlier capitals of Texas.
-"""
+explanation = "    Austin is named in honor of Stephen F. Austin. It was purpose-built to\n    be the capital of Texas and was incorporated in December 1839. Houston,\n    Harrisburg, Columbia, and Galveston are all earlier capitals of Texas.\n"
 
 [dictionaries]
-label = 'dictionaries'
+label = "dictionaries"
 
 [[dictionaries.questions]]
+
+[[dictionaries.questions]]
+question = "What is the Python Documentation definition of dicitonary?"
+answers = [
+    "An associative array, where arbitrary keys are mapped to values. The keys can be any object with __hash__() and __eq__() methods.",
+]
+alternatives = [
+    "",
+]
+hint = ""
+explanation = ""
+
+[[dictionaries.questions]]
+question = "Which of the following is a hashable type?"
+answers = [
+    "string",
+]
+alternatives = [
+    "",
+]
+hint = ""
+explanation = ""
+
+[[dictionaries.questions]]
+question = "After what python version did python dictionaries become ordered?"
+answers = [
+    "3.6",
+]
+alternatives = [
+    "",
+]
+hint = ""
+explanation = ""
+
+[[dictionaries.questions]]
+question = "If dictionaries access values via key, then sequences access values via . . ."
+answers = [
+    "index",
+]
+alternatives = [
+    "",
+]
+hint = ""
+explanation = ""
+
+[[dictionaries.questions]]
+question = "The keys of a dictionary behave similarity to what data structure?"
+answers = [
+    "sets",
+]
+alternatives = [
+    "",
+]
+hint = ""
+explanation = ""
+
+[[dictionaries.questions]]
+question = "Why can't a dictionary be a key in a dictionary?"
+answers = [
+    "Dictionaries are mutable. Keys must be immutable and hashable.",
+]
+alternatives = [
+    "",
+]
+hint = ""
+explanation = ""
+
+[[dictionaries.questions]]
+question = "What dictionary builtin allows direct iteration over the keys by default?"
+answers = [
+    "__iter__",
+]
+alternatives = [
+    "",
+]
+hint = ""
+explanation = ""
+
+[[dictionaries.questions]]
+question = "What method allows you to iterate over a dictionary's keys and values at the same time?"
+answers = [
+    ".items()",
+]
+alternatives = [
+    "",
+]
+hint = ""
+explanation = ""
+
+[[dictionaries.questions]]
+question = "What is returned by dict.items()?"
+answers = [
+    "A dict_items object which is a list of two tuples. ",
+]
+alternatives = [
+    "",
+]
+hint = ""
+explanation = ""
+
+[[dictionaries.questions]]
+question = "What does .keys() return?"
+answers = [
+    "A dict_keys view object consisting of a list of strings",
+]
+alternatives = [
+    "",
+]
+hint = ""
+explanation = ""
+
+[modules-and-packages]
+label = "Modules and Packages"
+
+[[modules-and-packages.questions]]
+
+[[modules-and-packages.questions]]
+question = "What is needed to qualify a directory as a package?"
+answers = [
+    "__init__.py",
+]
+alternatives = [
+    "src/",
+]
+hint = ""
+explanation = ""
+
+[[modules-and-packages.questions]]
+question = "What is the correct syntax for importing a module and package?"
+answers = [
+    "from  <package \"directory\"> import <module \"file name\">",
+]
+alternatives = [
+    "from <module \"directory\"> import <package \"file name\">",
+]
+hint = ""
+explanation = ""
