@@ -9,6 +9,7 @@ packages = [{include = "quiz", from = "src"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 tomlkit = "^0.12.3"
+tomli-w = "^1.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
